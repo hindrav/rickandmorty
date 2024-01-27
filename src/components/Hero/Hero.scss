@@ -1,0 +1,159 @@
+@import "../../assets/scss/main.scss";
+
+.hero {
+  position: relative;
+  display: flex;
+  color: white;
+  background-image: url("../../assets/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 76.8rem;
+  height: 100vh;
+
+  &-overlay {
+    display: flex;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    min-height: 76.8rem;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-header {
+    width: calc(100% - 5rem);
+    margin: 0 auto;
+  }
+  &__title {
+    font-weight: 900;
+    font-size: 3.5rem;
+    width: calc(100% - 5rem);
+    margin: 0 auto 1.3rem auto;
+  }
+  &__desc {
+    font-weight: 300;
+    font-size: 1.9rem;
+    width: calc(100% - 5rem);
+    margin: 0 auto 3rem auto;
+  }
+
+  &-body {
+    width: calc(100% - 2rem);
+  }
+
+  &-footer {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(172, 172, 172);
+    width: calc(100% - 2rem);
+    transform: translateY(14rem);
+    &-icons {
+      & span {
+        font-size: 3rem;
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  &-social {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    transform: translateY(2rem);
+    & span {
+      font-size: 3rem;
+      padding-right: 1rem;
+      border-right: 1px solid #acacac;
+    }
+  }
+  &-link {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: $primary;
+    border: 0.1rem solid transparent;
+    border-radius: 1rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+  }
+}
+
+@include bp-lg {
+  .hero {
+    &__title {
+      font-size: 4rem;
+    }
+    &__desc {
+      font-size: 2.3rem;
+    }
+    &-footer {
+      font-size: 1.4rem;
+      &-icons {
+        & span {
+          font-size: 3.5rem;
+        }
+      }
+    }
+    &-social {
+      & span {
+        font-size: 3.5rem;
+      }
+    }
+  }
+}
+
+@include bp-tab {
+  .hero{
+    &__title {
+      font-size: 4.7rem;
+    }
+    &__desc {
+      font-size: 2.4rem;
+      margin-bottom: 4rem;
+    }
+    &-header{
+      margin-top: 10rem;
+    }
+    &-footer{
+      transform: translateY(20rem);
+    }
+  }
+}
+
+@include bp-tab-md{
+  .hero{
+    &-footer{
+      transform: translateY(9rem);
+    }
+  }
+}
+
+@include bp-lap{
+  .hero{
+    &-footer{
+      transform: translateY(20rem);
+    }
+  }
+}
+
+@include bp-lap-lg{
+  .hero{
+    &__title {
+      font-size: 5rem;
+    }
+    &__desc {
+      font-size: 2.8rem;
+      margin-bottom: 4rem;
+    }
+    &-header{
+      margin-top: 10rem;
+    }
+  }
+}

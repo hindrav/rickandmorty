@@ -1,0 +1,67 @@
+@import "../../assets/scss/main.scss";
+.cardspage{
+background-image: url("../../assets/images/backgroundcards.png");
+background-size: cover;
+background-repeat: no-repeat;
+background-position: start;
+overflow-x: hidden;
+  &-container{
+    display: flex;
+    background-color: rgba(0,0,0,0.5);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.pagination{
+  display: flex;
+  background-color: rgba(0,0,0,0.8);
+  width: 28rem;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+
+  & span{
+    color: white;
+    font-size: 2rem;
+    margin: 0 1.4rem;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  .active{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: -.5rem;
+  }
+
+  & button{
+    margin: 0 2rem;
+  }
+}
+
+.image404{
+  width: 30rem;
+  padding: 3rem 0;
+}
+
+@include bp-md{
+  .image404{
+    width: 31rem;
+  }
+}
+
+@include bp-lg{
+  .image404{
+    width: 40rem;
+  }
+}
+
+@include bp-tab{
+  .image404{
+    width: 70rem;
+  }
+}

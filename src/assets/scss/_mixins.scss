@@ -1,0 +1,60 @@
+@mixin bp-md {
+    @media screen and (min-width: $bp-md) {
+      @content;
+    }
+  }
+  @mixin bp-lg {
+    @media screen and (min-width: $bp-lg) {
+      @content;
+    }
+  }
+  @mixin bp-tab {
+    @media screen and (min-width: $bp-tab) {
+      @content;
+    }
+  }
+  @mixin bp-tab-md {
+    @media screen and (min-width: $bp-tab-md) {
+      @content;
+    }
+  }
+  @mixin bp-lap {
+    @media screen and (min-width: $bp-lap) {
+      @content;
+    }
+  }
+  @mixin bp-lap-lg {
+    @media screen and (min-width: $bp-lap-lg) {
+      @content;
+    }
+  }
+  @mixin bp-desk {
+    @media screen and (min-width: $bp-desk) {
+      @content;
+    }
+  }
+  @mixin bp-desk-lg {
+    @media screen and (min-width: $bp-desk-lg) {
+      @content;
+    }
+  }
+  @mixin bg-gradient{
+    background: #360033; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #0b8793,
+      #360033
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #0b8793,
+      #360033
+    );
+  }
+
+  @mixin bg-card{
+    background-image: url("../../assets/images/portal.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }

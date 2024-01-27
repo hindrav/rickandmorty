@@ -1,0 +1,95 @@
+@import "../../assets/scss/main.scss";
+
+.card {
+  @include bg-card;
+  position: relative;
+  border-radius: 2rem;
+  width: 30rem;
+  margin: 2rem;
+  overflow: hidden;
+
+  &-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+  }
+
+  &-image {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 5rem 0 0 0;
+    & img {
+      border-radius: 100%;
+      width: 25rem;
+      transition: transform .1s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &-info {
+    &__header {
+      display: grid;
+      color: white;
+      border: 0.1rem solid transparent;
+      place-items: center;
+      width: 100%;
+      height: 8rem;
+      padding: 0;
+
+      h2 {
+        font-size: 3rem;
+        font-weight: 900;
+        text-align: center;
+        margin: 0;
+      }
+    }
+    &__footer {
+      display: grid;
+      color: white;
+      border: 0.1rem solid transparent;
+      place-items: center;
+      padding: 0 0 2rem;
+
+      & p {
+        font-size: 1.9rem;
+        text-align: center;
+        margin: 0;
+        padding: 0.7rem 0 0.5rem 1rem;
+      }
+      & strong{
+        font-weight: 800;
+      }
+    }
+  }
+  &-char-status{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    background-color: rgb(35, 35, 35);
+    border: .1rem solid transparent;
+    border-radius: .7rem;
+    margin: 2rem 1rem;
+    padding: .5rem;
+    transition: .1s ease-in-out;
+  }
+}
+
+.alive{
+  border: .7rem solid rgb(1, 223, 1);
+}
+.dead{
+  border: .7rem solid rgb(247, 14, 14);
+}
+.unk{
+  border: .7rem solid white;
+}
