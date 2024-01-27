@@ -27,27 +27,11 @@
     background: none;
     border: 0.1rem solid rgb(156, 156, 156);
     border-radius: 3rem;
-    width: 30rem;
+    width: 29rem;
     padding: 0.7rem;
 
     &::placeholder {
       color: rgb(156, 156, 156);
-    }
-  }
-}
-
-@include bp-md{
-  .search-form {
-    & input{
-      width: 31rem;
-    }
-  }
-}
-
-@include bp-lg{
-  .search-form {
-    & input{
-      width: 35rem;
     }
   }
 }

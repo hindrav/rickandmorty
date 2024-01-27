@@ -16,24 +16,24 @@ overflow-x: hidden;
 
 .pagination{
   display: flex;
-  background-color: rgba(0,0,0,0.8);
-  width: 28rem;
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-  padding: 3rem;
+  padding: 4rem 0;
 
   & span{
     color: white;
-    font-size: 2rem;
-    margin: 0 1.4rem;
+    font-size: 1.3rem;
+    margin: 0 .5rem;
     &:hover{
       cursor: pointer;
     }
   }
 
   .active{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-top: -.5rem;
   }
@@ -49,18 +49,48 @@ overflow-x: hidden;
 }
 
 @include bp-md{
+  .pagination{
+    & span{
+      font-size: 1.5rem;
+      margin: 0 .8rem;
+    }
+
+    .active{
+      font-size: 2.2rem;
+    }
+  }
   .image404{
     width: 31rem;
   }
 }
 
 @include bp-lg{
+  .pagination{
+    & span{
+      font-size: 1.8rem;
+      margin: 0 1rem;
+    }
+
+    .active{
+      font-size: 2.5rem;
+    }
+  }
   .image404{
     width: 40rem;
   }
 }
 
 @include bp-tab{
+  .pagination{
+    & span{
+      font-size: 2rem;
+      margin: 0 1.5rem;
+    }
+
+    .active{
+      font-size: 3rem;
+    }
+  }
   .image404{
     width: 70rem;
   }

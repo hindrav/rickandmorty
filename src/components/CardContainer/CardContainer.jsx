@@ -11,6 +11,8 @@ import {
 } from "../../redux/slices/characterSlice";
 import { Card } from "../Card/Card";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { CardSkeleton } from "components/CardSkeleton/CardSkeleton";
+import { setLoading } from "../../redux/slices/loaderSlice";
 
 import image404 from "../../assets/images/404.png";
 
@@ -23,16 +25,20 @@ const CardContainer = () => {
   const { characters, currentPage, totalPages } = useSelector(
     (state) => state.character
   );
+  const loading = useSelector((state) => state.loader.loading);
 
   const searchTerm = useSelector((state) => state.search.searchTerm);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        dispatch(setLoading(true));
         const charactersData = await getCharacters(currentPage, searchTerm);
         dispatch(setCharacters(charactersData), shallowEqual);
+        dispatch(setLoading(false));
       } catch (err) {
         console.log("Error:", err);
+        dispatch(setLoading(false));
       }
     };
     fetchData();
@@ -49,10 +55,9 @@ const CardContainer = () => {
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
-    const maxPagesToShow = 5; // Ajusta según tus necesidades
+    const maxPagesToShow = 4;
 
     if (totalPages <= maxPagesToShow) {
-      // Si hay menos páginas de las que queremos mostrar, mostrar todas
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(
           <span
@@ -65,7 +70,7 @@ const CardContainer = () => {
         );
       }
     } else {
-      // Si hay más páginas, mostrar solo las específicas
+      // If there are more pages, show only the specific ones
       const startPage = Math.max(
         1,
         Math.min(currentPage - 2, totalPages - maxPagesToShow + 1)
@@ -114,10 +119,16 @@ const CardContainer = () => {
     <div className="cardspage">
       <SearchBar />
       <div className="cardspage-container">
-        {characters ? (
+        {characters && !loading ? (
           characters.map((character) => (
             <Card key={character.id} character={character} />
           ))
+        ) : loading ? (
+          <>
+            {Array.from({ length: 8 }).map((_, index) => (
+              <CardSkeleton key={index} />
+            ))}
+          </>
         ) : (
           <img src={image404} alt="404 image" className="image404" />
         )}

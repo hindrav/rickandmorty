@@ -1,9 +1,29 @@
-import React from "react";
-import { Tooltip } from "react-tooltip";
+import React, { useEffect, useRef } from "react";
+import 'intersection-observer';
 
 import "./Card.scss";
 
 const Card = ({ character }) => {
+  const cardRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transition = 'opacity 0.5s ease-in-out';
+        }
+      });
+    });
+
+    observer.observe(cardRef.current);
+
+    // Clean observer when component unmount
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const isAlive = (status) => {
     switch (status) {
       case "Alive":
@@ -17,10 +37,14 @@ const Card = ({ character }) => {
   const characterStatus = character.status;
   const statusClass = isAlive(characterStatus);
   return (
-    <div className="card" key={character.id}>
+    <div ref={cardRef} className="card" key={character.id}>
       <div className="card-overlay">
         <div className="card-image">
-          <img className={`${statusClass}`} src={character.image} alt={`${character.name}`} />
+          <img
+            className={`${statusClass}`}
+            src={character.image}
+            alt={`${character.name}`}
+          />
           <div className="card-char-status">
             <span>{character.status}</span>
           </div>

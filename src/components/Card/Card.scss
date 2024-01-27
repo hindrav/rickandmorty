@@ -4,6 +4,9 @@
   @include bg-card;
   position: relative;
   border-radius: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   width: 30rem;
   margin: 2rem;
   overflow: hidden;
@@ -22,11 +25,11 @@
     & img {
       border-radius: 100%;
       width: 25rem;
-      transition: transform .1s ease-in-out;
+      transition: transform 0.1s ease-in-out;
 
       &:hover {
         cursor: pointer;
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
     }
   }
@@ -61,12 +64,12 @@
         margin: 0;
         padding: 0.7rem 0 0.5rem 1rem;
       }
-      & strong{
+      & strong {
         font-weight: 800;
       }
     }
   }
-  &-char-status{
+  &-char-status {
     position: absolute;
     top: 0;
     right: 0;
@@ -74,22 +77,27 @@
     font-weight: 800;
     color: white;
     text-transform: uppercase;
-    letter-spacing: .2rem;
+    letter-spacing: 0.2rem;
     background-color: rgb(35, 35, 35);
-    border: .1rem solid transparent;
-    border-radius: .7rem;
+    border: 0.1rem solid transparent;
+    border-radius: 0.7rem;
     margin: 2rem 1rem;
-    padding: .5rem;
-    transition: .1s ease-in-out;
+    padding: 0.5rem;
+    transition: 0.1s ease-in-out;
   }
 }
 
-.alive{
-  border: .7rem solid rgb(1, 223, 1);
+card.card-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
-.dead{
-  border: .7rem solid rgb(247, 14, 14);
+
+.alive {
+  border: 0.7rem solid rgb(1, 223, 1);
 }
-.unk{
-  border: .7rem solid white;
+.dead {
+  border: 0.7rem solid rgb(247, 14, 14);
+}
+.unk {
+  border: 0.7rem solid white;
 }
